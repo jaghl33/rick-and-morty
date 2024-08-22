@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Login from '../components/Login';
 import Characters from '../components/Characters';
 
 function Home() {
     const [logedIn, setLogedIn] = useState(false);
-    useEffect(()=> {
+    
+    const handleLogin = () => {
         setLogedIn(true);
-    },[])
+    };
+
     return (
         <>
-        { !logedIn ? <Login />
+        { !logedIn ? <Login onLogin={handleLogin} />
         :
             <Characters />
         }
